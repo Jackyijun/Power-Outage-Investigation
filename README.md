@@ -85,11 +85,11 @@ The missingness mechanism of column **CAUSE.CATEGORY.DETAIL** is **NMAR**. This 
 
 <iframe src="assets/fig_5_missing_depends.html" width=800 height=600 frameBorder=0></iframe>
 
-<iframe src="assets/fig_6_missing_depends_emprical.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_6_missing_depends_empirical.html" width=800 height=600 frameBorder=0></iframe>
 
 ##### Missingness of Outage Duration(OUTAGE.DURATION) not depends on number of Customers Affected(CUSTOMERS.AFFECTED)
 <iframe src="assets/fig_7_missing_notdepends.html" width=800 height=600 frameBorder=0></iframe>
-<iframe src="assets/fig_8_missing_notdepends_emprical.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_8_missing_notdepends_empirical.html" width=800 height=600 frameBorder=0></iframe>
 
 
 # Hypothesis Testing
