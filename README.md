@@ -24,6 +24,10 @@ There is a total of 1534 rows of data, each corresponding to a single observed p
 
 # Cleaning and EDA
 ### Data Cleaning
+After loading the data, few of the columns mentioned above caught our attention. There are missing values in the OUTAGE.RESTORATION.DATE, OUTAGE.RESTORATION.TIME, CAUSE.CATEGORY.DETAIL, OUTAGE.DURATION, DEMAND.LOSS.MW, and CUSTOMERS.AFFECTED columns. The missing values regarding restoration is likely due to a permanent shutdown or unknown reasons, so we could not arbitrarily impute values to replace them. The missingness in the cause category detail column is likely NMAR, explained in the analysis section below, and it isn't necessary to replace null values, as most rows are identical to the CAUSE.CATEGORY column. The OUTAGE.DURATION, DEMAND.LOSS.MW, and CUSTOMERS.AFFECTED columns all contain NaN values and 0s, but we have determined that the 0s are valid and faithful data. OUTAGE.DURATION contains zeros as a direct result of subtracting the start time from the restoration time, so if the power was immediately restored, the duration could become 0 minutes. In both DEMAND.LOSS.MW and CUSTOMERS.AFFECTED, the zeros represent minimal amount of damage done during the outage, which indicates less than 1 megawatt of demand loss, and not significant amount of population affected. 
+
+We added two columns, OUTAGE.START and OUTAGE.RESTORATION, to the dataframe by combining the corresponding date and time column, storing the elements as Timestamp objects. This is done to conveniently map time series data.
+
 This is the cleaned Dataframe
 
 |   OBS |   YEAR |   MONTH | U.S._STATE   | POSTAL.CODE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.START.TIME   | OUTAGE.RESTORATION.DATE   | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   RES.PRICE |   COM.PRICE |   IND.PRICE |   TOTAL.PRICE |   RES.SALES |   COM.SALES |   IND.SALES |   TOTAL.SALES |   RES.PERCEN |   COM.PERCEN |   IND.PERCEN |   RES.CUSTOMERS |   COM.CUSTOMERS |   IND.CUSTOMERS |   TOTAL.CUSTOMERS |   RES.CUST.PCT |   COM.CUST.PCT |   IND.CUST.PCT |   PC.REALGSP.STATE |   PC.REALGSP.USA |   PC.REALGSP.REL |   PC.REALGSP.CHANGE |   UTIL.REALGSP |   TOTAL.REALGSP |   UTIL.CONTRI |   PI.UTIL.OFUSA |   POPULATION |   POPPCT_URBAN |   POPPCT_UC |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   AREAPCT_URBAN |   AREAPCT_UC |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND | OUTAGE.START        | OUTAGE.RESTORATION   |
@@ -77,6 +81,15 @@ Number of Outage of each state by cause category
 The missingness mechanism of column **CAUSE.CATEGORY.DETAIL** is **NMAR**. This column appears to be documented and written by researchers, as the labels used for detailed causes are quite messy and inconsistent. For example, there are two very similar labels "Coal" and " Coal", both of which corresponds to a power outage caused by a coal power plant issue. Another occurance is the various notations of wind damage, including "heavy wind", "wind/rain", "wind storm", and "wind". These clues imply that this column is reported by hand, and the names of each label varies from one person to another. Therefore, it is very likely that the missing values are an incident of human error while collecting the information. If the cause details are unknown to the researcher, or the causes are quite obvious and not worth writing its details, then the researcher is more likely to not write anything within this column. And so, the missing values are depended on the missing values itself.
 
 ### Missingness Dependency
+##### Missingness of Outage Duration(OUTAGE.DURATION) depends on Cause(CAUSE.CATEGORY)
+
+<iframe src="assets/fig_5_missing_depends.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/fig_6_missing_depends_emprical.html" width=800 height=600 frameBorder=0></iframe>
+
+##### Missingness of Outage Duration(OUTAGE.DURATION) not depends on number of Customers Affected(CUSTOMERS.AFFECTED)
+<iframe src="assets/fig_7_missing_notdepends.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_8_missing_notdepends_emprical.html" width=800 height=600 frameBorder=0></iframe>
 
 
 # Hypothesis Testing
