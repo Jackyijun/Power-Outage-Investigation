@@ -7,21 +7,21 @@ This analysis works on a dataset pertaining to the major power outages witnessed
 One of the major objectives for analyzing power outages is to understand the underlying causes, identify attributes that facilitates the incident, and summarize an overal risk factor for each region. In this analysis, we took the lasting duration of each outage as the measure for impact severity, and centered our focus around the question, what are the major causes for the varying duration of outages? More specifically, What attributes tends to produce longer duration outages? Understanding this question is significant, as it could lead to future research on generating a holistic risk factor considering all attributes, and helping with outage prevention in real world scenarios. 
 
 There is a total of 1534 rows of data, each corresponding to a single observed power outage within the time frame in continental US. The major columns that are related to this investigation are:
-    YEAR: year of which the power outage took place
-    MONTH: month of which the power outage took place
-    U.S._STATE: state of which the power outage occured
-    NERC.REGION: the North American Electric Reliability Corporation (NERC) involved in this power outage
-    CLIMATE.REGION: U.S. climate region of which the state belongs to
-    ANOMALY.LEVEL: an indicator of the the warm and cold episodes brought by El Niño/La Niña
-    CLIMATE.CATEGORY: "warm", "normal", "cold", determined by ANOMALY.LEVEL
-    OUTAGE.START.DATE and TIME: the exact time the power outage happened
-    OUTAGE.RESTORATION.DATE and TIME: the exact time the power was rebooted
-    CAUSE.CATEGORY: general category of the cause for the incident
-    CAUSE.CATEGORY.DETAIL: detailed direct cause for the incident
-    OUTAGE.DURATION: the number of minutes that the outage lasted
-    DEMAND.LOSS.MW: the peak demand loss or total demand loss, measured in megawatts
-    CUSTOMERS.AFFECTED: number of customers effected
-    
+- YEAR: year of which the power outage took place
+- MONTH: month of which the power outage took place
+- U.S._STATE: state of which the power outage occured
+- NERC.REGION: the North American Electric Reliability Corporation (NERC) involved in this power outage
+- CLIMATE.REGION: U.S. climate region of which the state belongs to
+- ANOMALY.LEVEL: an indicator of the the warm and cold episodes brought by El Niño/La Niña
+- CLIMATE.CATEGORY: "warm", "normal", "cold", determined by ANOMALY.LEVEL
+- OUTAGE.START.DATE and TIME: the exact time the power outage happened
+- OUTAGE.RESTORATION.DATE and TIME: the exact time the power was rebooted
+- CAUSE.CATEGORY: general category of the cause for the incident
+- CAUSE.CATEGORY.DETAIL: detailed direct cause for the incident
+- OUTAGE.DURATION: the number of minutes that the outage lasted
+- DEMAND.LOSS.MW: the peak demand loss or total demand loss, measured in megawatts
+- CUSTOMERS.AFFECTED: number of customers effected
+
 # Cleaning and EDA
 ### Data Cleaning
 This is the cleaned Dataframe
