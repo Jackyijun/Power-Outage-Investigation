@@ -1,10 +1,11 @@
 # Power-Outage-Investigation
-Explorotary Data Analysis on the data of continental U.S. power outage from 2000 to 2016
 **David Sun & Yijun Luo**
 
 # Introduction
 
 # Cleaning and EDA
+### Data Cleaning
+This is the cleaned dataframe
 
 |   OBS |   YEAR |   MONTH | U.S._STATE   | POSTAL.CODE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.START.TIME   | OUTAGE.RESTORATION.DATE   | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   RES.PRICE |   COM.PRICE |   IND.PRICE |   TOTAL.PRICE |   RES.SALES |   COM.SALES |   IND.SALES |   TOTAL.SALES |   RES.PERCEN |   COM.PERCEN |   IND.PERCEN |   RES.CUSTOMERS |   COM.CUSTOMERS |   IND.CUSTOMERS |   TOTAL.CUSTOMERS |   RES.CUST.PCT |   COM.CUST.PCT |   IND.CUST.PCT |   PC.REALGSP.STATE |   PC.REALGSP.USA |   PC.REALGSP.REL |   PC.REALGSP.CHANGE |   UTIL.REALGSP |   TOTAL.REALGSP |   UTIL.CONTRI |   PI.UTIL.OFUSA |   POPULATION |   POPPCT_URBAN |   POPPCT_UC |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   AREAPCT_URBAN |   AREAPCT_UC |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND | OUTAGE.START        | OUTAGE.RESTORATION   |
 |------:|-------:|--------:|:-------------|:--------------|:--------------|:-------------------|----------------:|:-------------------|:--------------------|:--------------------|:--------------------------|:--------------------------|:-------------------|:------------------------|------------------:|------------------:|-----------------:|---------------------:|------------:|------------:|------------:|--------------:|------------:|------------:|------------:|--------------:|-------------:|-------------:|-------------:|----------------:|----------------:|----------------:|------------------:|---------------:|---------------:|---------------:|-------------------:|-----------------:|-----------------:|--------------------:|---------------:|----------------:|--------------:|----------------:|-------------:|---------------:|------------:|---------------:|------------:|---------------:|----------------:|-------------:|-----------:|----------------:|-------------------:|:--------------------|:---------------------|
@@ -16,8 +17,7 @@ Explorotary Data Analysis on the data of continental U.S. power outage from 2000
 ​
 
 
-### Data Cleaning
-This is how we clean the data
+
 ### Univariate Analysis
 <iframe src="assets/fig_1_uni_choropleth.html" width=800 height=600 frameBorder=0></iframe>
 Interpretation:
@@ -33,9 +33,29 @@ Interpretation:
 
 
 ### Interesting Aggregates
+Mean outage duration measured of each state by cause category
+|   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
+|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
+|              nan    |                   nan   |               77     |     nan     |          nan    |          1421.75 |                         nan     |
+|              138.5  |                   nan   |              639.6   |     nan     |          nan    |         25726.5  |                         384.5   |
+|              105    |                   nan   |              547.833 |       3     |         1063.71 |          2701.8  |                         nan     |
+|              524.81 |                  6154.6 |              946.458 |     214.857 |         2028.11 |          2928.37 |                         363.667 |
+|              nan    |                   nan   |              117     |       2     |          nan    |          2727.25 |                         279.75  |
 
+Number of Outage of each state by cause category
+|   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
+|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
+|              nan    |                   nan   |               77     |     nan     |          nan    |          1421.75 |                         nan     |
+|              138.5  |                   nan   |              639.6   |     nan     |          nan    |         25726.5  |                         384.5   |
+|              105    |                   nan   |              547.833 |       3     |         1063.71 |          2701.8  |                         nan     |
+|              524.81 |                  6154.6 |              946.458 |     214.857 |         2028.11 |          2928.37 |                         363.667 |
+|              nan    |                   nan   |              117     |       2     |          nan    |          2727.25 |                         279.75  |
+​
 
 
 # Assessment of Missingness
+### NMAR Analysis
+The missingness mechanism of column **CAUSE.CATEGORY.DETAIL** is **NMAR**. This column appears to be documented and written by researchers, as the labels used for detailed causes are quite messy and inconsistent. For example, there are two very similar labels "Coal" and " Coal", both of which corresponds to a power outage caused by a coal power plant issue. Another occurance is the various notations of wind damage, including "heavy wind", "wind/rain", "wind storm", and "wind". These clues imply that this column is reported by hand, and the names of each label varies from one person to another. Therefore, it is very likely that the missing values are an incident of human error while collecting the information. If the cause details are unknown to the researcher, or the causes are quite obvious and not worth writing its details, then the researcher is more likely to not write anything within this column. And so, the missing values are depended on the missing values itself.
+
 
 # Hypothesis Testing
