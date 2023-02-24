@@ -45,12 +45,11 @@ Mean outage duration measured of each state by cause category
 Number of Outage of each state by cause category
 |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
 |--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
-|              nan    |                   nan   |               77     |     nan     |          nan    |          1421.75 |                         nan     |
-|              138.5  |                   nan   |              639.6   |     nan     |          nan    |         25726.5  |                         384.5   |
-|              105    |                   nan   |              547.833 |       3     |         1063.71 |          2701.8  |                         nan     |
-|              524.81 |                  6154.6 |              946.458 |     214.857 |         2028.11 |          2928.37 |                         363.667 |
-|              nan    |                   nan   |              117     |       2     |          nan    |          2727.25 |                         279.75  |
-​
+|                   0 |                       0 |                    1 |           0 |               0 |                4 |                               0 |
+|                   0 |                       0 |                    0 |           0 |               0 |                0 |                               0 |
+|                   4 |                       0 |                   15 |           0 |               0 |                4 |                               2 |
+|                   1 |                       0 |                    6 |           1 |               7 |               10 |                               0 |
+|                  21 |                      10 |                   24 |          28 |               9 |               67 |                              39 |
 
 
 # Assessment of Missingness
