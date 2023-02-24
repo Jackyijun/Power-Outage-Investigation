@@ -93,17 +93,17 @@ The missingness mechanism of column **CAUSE.CATEGORY.DETAIL** is **NMAR**. This 
 
 
 # Hypothesis Testing
-***Null Hypothesis:*** Severe weather related outage durations ***are*** randomly sampled from the population of outage duration. 
+**Null Hypothesis:** Severe weather related outage durations ***are*** randomly sampled from the population of outage duration. 
 
-***Alternative Hypothesis:*** Severe weather related outage durations ***are not*** randomly sampled from the population of outage duration. 
+**Alternative Hypothesis:** Severe weather related outage durations ***are not*** randomly sampled from the population of outage duration. 
 
-***Observation:*** outage durations caused by severe weather
+**Observation:** outage durations caused by severe weather
 
-***Population:*** all outage durations (from data)
+**Population:** all outage durations (from data)
 
-***Test Statistic:*** mean of sampled durations
+**Test Statistic:** mean of sampled durations
 
-***Sample Size:*** number of outage durations that has been categorized as caused by severe weather
+**Sample Size:** number of outage durations that has been categorized as caused by severe weather
 
 
 <iframe src="assets/fig_9_hypothesis_test.html" width=800 height=600 frameBorder=0></iframe>
