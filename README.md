@@ -5,7 +5,6 @@
 
 # Cleaning and EDA
 ### Data Cleaning
-This is the cleaned dataframe
 
 |   OBS |   YEAR |   MONTH | U.S._STATE   | POSTAL.CODE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.START.TIME   | OUTAGE.RESTORATION.DATE   | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   RES.PRICE |   COM.PRICE |   IND.PRICE |   TOTAL.PRICE |   RES.SALES |   COM.SALES |   IND.SALES |   TOTAL.SALES |   RES.PERCEN |   COM.PERCEN |   IND.PERCEN |   RES.CUSTOMERS |   COM.CUSTOMERS |   IND.CUSTOMERS |   TOTAL.CUSTOMERS |   RES.CUST.PCT |   COM.CUST.PCT |   IND.CUST.PCT |   PC.REALGSP.STATE |   PC.REALGSP.USA |   PC.REALGSP.REL |   PC.REALGSP.CHANGE |   UTIL.REALGSP |   TOTAL.REALGSP |   UTIL.CONTRI |   PI.UTIL.OFUSA |   POPULATION |   POPPCT_URBAN |   POPPCT_UC |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   AREAPCT_URBAN |   AREAPCT_UC |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND | OUTAGE.START        | OUTAGE.RESTORATION   |
 |------:|-------:|--------:|:-------------|:--------------|:--------------|:-------------------|----------------:|:-------------------|:--------------------|:--------------------|:--------------------------|:--------------------------|:-------------------|:------------------------|------------------:|------------------:|-----------------:|---------------------:|------------:|------------:|------------:|--------------:|------------:|------------:|------------:|--------------:|-------------:|-------------:|-------------:|----------------:|----------------:|----------------:|------------------:|---------------:|---------------:|---------------:|-------------------:|-----------------:|-----------------:|--------------------:|---------------:|----------------:|--------------:|----------------:|-------------:|---------------:|------------:|---------------:|------------:|---------------:|----------------:|-------------:|-----------:|----------------:|-------------------:|:--------------------|:---------------------|
@@ -34,22 +33,22 @@ Interpretation:
 
 ### Interesting Aggregates
 Mean outage duration measured of each state by cause category
-|   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
-|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
-|              nan    |                   nan   |               77     |     nan     |          nan    |          1421.75 |                         nan     |
-|              138.5  |                   nan   |              639.6   |     nan     |          nan    |         25726.5  |                         384.5   |
-|              105    |                   nan   |              547.833 |       3     |         1063.71 |          2701.8  |                         nan     |
-|              524.81 |                  6154.6 |              946.458 |     214.857 |         2028.11 |          2928.37 |                         363.667 |
-|              nan    |                   nan   |              117     |       2     |          nan    |          2727.25 |                         279.75  |
+| U.S._STATE   |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
+|:-------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
+| Alabama      |              nan    |                   nan   |               77     |     nan     |          nan    |          1421.75 |                         nan     |
+| Arizona      |              138.5  |                   nan   |              639.6   |     nan     |          nan    |         25726.5  |                         384.5   |
+| Arkansas     |              105    |                   nan   |              547.833 |       3     |         1063.71 |          2701.8  |                         nan     |
+| California   |              524.81 |                  6154.6 |              946.458 |     214.857 |         2028.11 |          2928.37 |                         363.667 |
+| Colorado     |              nan    |                   nan   |              117     |       2     |          nan    |          2727.25 |                         279.75  |
 
 Number of Outage of each state by cause category
-|   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
-|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
-|                   0 |                       0 |                    1 |           0 |               0 |                4 |                               0 |
-|                   0 |                       0 |                    0 |           0 |               0 |                0 |                               0 |
-|                   4 |                       0 |                   15 |           0 |               0 |                4 |                               2 |
-|                   1 |                       0 |                    6 |           1 |               7 |               10 |                               0 |
-|                  21 |                      10 |                   24 |          28 |               9 |               67 |                              39 |
+| U.S._STATE   |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
+|:-------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
+| Alabama      |                   0 |                       0 |                    1 |           0 |               0 |                4 |                               0 |
+| Alaska       |                   0 |                       0 |                    0 |           0 |               0 |                0 |                               0 |
+| Arizona      |                   4 |                       0 |                   15 |           0 |               0 |                4 |                               2 |
+| Arkansas     |                   1 |                       0 |                    6 |           1 |               7 |               10 |                               0 |
+| California   |                  21 |                      10 |                   24 |          28 |               9 |               67 |                              39 |
 
 
 # Assessment of Missingness
