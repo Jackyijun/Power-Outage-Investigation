@@ -1,5 +1,5 @@
 # Power-Outage-Investigation
-**David Sun & Yijun Luo**
+**by David Sun & Yijun Luo**
 
 # Introduction
 This analysis works on a dataset pertaining to the major power outages witnessed across the US, from January 2000, to July 2016. Gathered and compiled by Sayanti Mukherjee and others in [this article](https://www.sciencedirect.com/science/article/pii/S2352340918307182), the dataset includes information on the specific time of each outage, the causes related to outage, regional climate information, impact of outage, geographic and economic statistics of the affected state, regional land usage and population information. 
@@ -28,7 +28,7 @@ After loading the data, few of the columns mentioned above caught our attention.
 
 We added two columns, OUTAGE.START and OUTAGE.RESTORATION, to the dataframe by combining the corresponding date and time column, storing the elements as Timestamp objects. This is done to conveniently map time series data.
 
-This is the cleaned Dataframe
+This is the cleaned Data
 
 |   OBS |   YEAR |   MONTH | U.S._STATE   | POSTAL.CODE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.START.TIME   | OUTAGE.RESTORATION.DATE   | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   RES.PRICE |   COM.PRICE |   IND.PRICE |   TOTAL.PRICE |   RES.SALES |   COM.SALES |   IND.SALES |   TOTAL.SALES |   RES.PERCEN |   COM.PERCEN |   IND.PERCEN |   RES.CUSTOMERS |   COM.CUSTOMERS |   IND.CUSTOMERS |   TOTAL.CUSTOMERS |   RES.CUST.PCT |   COM.CUST.PCT |   IND.CUST.PCT |   PC.REALGSP.STATE |   PC.REALGSP.USA |   PC.REALGSP.REL |   PC.REALGSP.CHANGE |   UTIL.REALGSP |   TOTAL.REALGSP |   UTIL.CONTRI |   PI.UTIL.OFUSA |   POPULATION |   POPPCT_URBAN |   POPPCT_UC |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   AREAPCT_URBAN |   AREAPCT_UC |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND | OUTAGE.START        | OUTAGE.RESTORATION   |
 |------:|-------:|--------:|:-------------|:--------------|:--------------|:-------------------|----------------:|:-------------------|:--------------------|:--------------------|:--------------------------|:--------------------------|:-------------------|:------------------------|------------------:|------------------:|-----------------:|---------------------:|------------:|------------:|------------:|--------------:|------------:|------------:|------------:|--------------:|-------------:|-------------:|-------------:|----------------:|----------------:|----------------:|------------------:|---------------:|---------------:|---------------:|-------------------:|-----------------:|-----------------:|--------------------:|---------------:|----------------:|--------------:|----------------:|-------------:|---------------:|------------:|---------------:|------------:|---------------:|----------------:|-------------:|-----------:|----------------:|-------------------:|:--------------------|:---------------------|
@@ -105,5 +105,10 @@ The missingness mechanism of column **CAUSE.CATEGORY.DETAIL** is **NMAR**. This 
 
 **Sample Size:** number of outage durations that has been categorized as caused by severe weather
 
+**Significance level:** 0.05
 
 <iframe src="assets/fig_9_hypothesis_test.html" width=800 height=600 frameBorder=0></iframe>
+
+**P-Value:** 0.0
+
+**Conclusion:** Since the P-value is 0, which is lower than 0.05, we shall reject our null hypothsis. Our hypothesis test suggests that the mean outage duration caused by severe weather is significantly higher than the overall outage duration. This favors our alternative hypothsis: Severe weather related outage durations ***are not*** randomly sampled from the population of outage duration. 
