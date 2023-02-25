@@ -57,8 +57,9 @@ Below is a scatterplot showing the relationship of mean total power sales versus
 
 
 ### Interesting Aggregates
-This following pivot table is a breakdown of average outage duration by state and cause category. This 
-Mean outage duration measured of each state by cause category
+This following pivot table is a breakdown of average outage duration by state and cause category. This
+
+**Mean outage duration measured of each state by cause category**
 
 | U.S._STATE           |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
 |:---------------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
@@ -112,15 +113,60 @@ Mean outage duration measured of each state by cause category
 | Wisconsin            |             nan     |                 33971.2 |           459        |    nan      |          388    |          1527.43 |                         nan     |
 | Wyoming              |              61     |                   nan   |             0.333333 |     32      |          nan    |           106    |                         nan     |
 
-Number of Outage of each state by cause category
+**Number of Outage of each state by cause category**
 
-| U.S._STATE   |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
-|:-------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
-| Alabama      |                   0 |                       0 |                    1 |           0 |               0 |                4 |                               0 |
-| Alaska       |                   0 |                       0 |                    0 |           0 |               0 |                0 |                               0 |
-| Arizona      |                   4 |                       0 |                   15 |           0 |               0 |                4 |                               2 |
-| Arkansas     |                   1 |                       0 |                    6 |           1 |               7 |               10 |                               0 |
-| California   |                  21 |                      10 |                   24 |          28 |               9 |               67 |                              39 |
+| U.S._STATE           |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
+|:---------------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
+| Alabama              |                   0 |                       0 |                    1 |           0 |               0 |                4 |                               0 |
+| Alaska               |                   0 |                       0 |                    0 |           0 |               0 |                0 |                               0 |
+| Arizona              |                   4 |                       0 |                   15 |           0 |               0 |                4 |                               2 |
+| Arkansas             |                   1 |                       0 |                    6 |           1 |               7 |               10 |                               0 |
+| California           |                  21 |                      10 |                   24 |          28 |               9 |               67 |                              39 |
+| Colorado             |                   0 |                       0 |                    5 |           1 |               0 |                4 |                               4 |
+| Connecticut          |                   0 |                       0 |                    8 |           0 |               0 |               10 |                               0 |
+| Delaware             |                   1 |                       0 |                   37 |           0 |               0 |                2 |                               0 |
+| District of Columbia |                   1 |                       0 |                    0 |           0 |               0 |                9 |                               0 |
+| Florida              |                   4 |                       0 |                    2 |           0 |               3 |               26 |                              10 |
+| Georgia              |                   0 |                       0 |                    1 |           0 |               0 |               16 |                               0 |
+| Hawaii               |                   0 |                       0 |                    0 |           0 |               0 |                4 |                               1 |
+| Idaho                |                   0 |                       0 |                    4 |           0 |               1 |                0 |                               3 |
+| Illinois             |                   1 |                       1 |                    1 |           0 |               1 |               40 |                               0 |
+| Indiana              |                   1 |                       1 |                    8 |           3 |               0 |               24 |                               5 |
+| Iowa                 |                   0 |                       0 |                    5 |           0 |               0 |                3 |                               0 |
+| Kansas               |                   0 |                       0 |                    3 |           0 |               1 |                3 |                               0 |
+| Kentucky             |                   1 |                       2 |                    1 |           0 |               0 |                9 |                               0 |
+| Louisiana            |                   3 |                       1 |                    0 |           0 |              14 |               14 |                               6 |
+| Maine                |                   0 |                       1 |                    6 |           1 |               0 |               10 |                               0 |
+| Maryland             |                   0 |                       0 |                   25 |           0 |               0 |               32 |                               1 |
+| Massachusetts        |                   0 |                       1 |                    8 |           0 |               0 |                7 |                               2 |
+| Michigan             |                   3 |                       0 |                    4 |           1 |               1 |               83 |                               3 |
+| Minnesota            |                   0 |                       0 |                    4 |           0 |               0 |               11 |                               0 |
+| Mississippi          |                   0 |                       0 |                    3 |           0 |               0 |                0 |                               1 |
+| Missouri             |                   0 |                       0 |                    3 |           0 |               0 |               11 |                               1 |
+| Montana              |                   0 |                       0 |                    1 |           2 |               0 |                0 |                               0 |
+| Nebraska             |                   0 |                       0 |                    0 |           0 |               1 |                3 |                               0 |
+| Nevada               |                   0 |                       0 |                    7 |           0 |               0 |                0 |                               0 |
+| New Hampshire        |                   0 |                       0 |                   12 |           0 |               0 |                2 |                               0 |
+| New Jersey           |                   0 |                       0 |                    8 |           0 |               0 |               22 |                               2 |
+| New Mexico           |                   0 |                       1 |                    6 |           0 |               0 |                0 |                               1 |
+| New York             |                   2 |                      12 |                   12 |           0 |               4 |               33 |                               7 |
+| North Carolina       |                   0 |                       0 |                    4 |           0 |               0 |               30 |                               5 |
+| North Dakota         |                   0 |                       0 |                    0 |           0 |               1 |                0 |                               0 |
+| Ohio                 |                   0 |                       0 |                   14 |           0 |               0 |               26 |                               2 |
+| Oklahoma             |                   0 |                       0 |                    3 |           1 |               3 |               15 |                               0 |
+| Oregon               |                   1 |                       0 |                   19 |           0 |               0 |                5 |                               0 |
+| Pennsylvania         |                   1 |                       0 |                    6 |           0 |               0 |               48 |                               2 |
+| South Carolina       |                   0 |                       0 |                    0 |           0 |               0 |                8 |                               0 |
+| South Dakota         |                   0 |                       0 |                    0 |           2 |               0 |                0 |                               0 |
+| Tennessee            |                   2 |                       0 |                    6 |           0 |               1 |               20 |                               2 |
+| Texas                |                   5 |                       3 |                   13 |           0 |              17 |               64 |                              20 |
+| Utah                 |                   1 |                       0 |                   35 |           0 |               1 |                2 |                               2 |
+| Vermont              |                   0 |                       0 |                    9 |           0 |               0 |                0 |                               0 |
+| Virginia             |                   0 |                       0 |                    1 |           0 |               2 |               32 |                               1 |
+| Washington           |                   1 |                       1 |                   62 |           3 |               1 |               20 |                               1 |
+| West Virginia        |                   0 |                       0 |                    1 |           0 |               0 |                3 |                               0 |
+| Wisconsin            |                   0 |                       4 |                    7 |           0 |               1 |                7 |                               0 |
+| Wyoming              |                   1 |                       0 |                    3 |           1 |               0 |                1 |                               0 |
 
 
 # Assessment of Missingness
