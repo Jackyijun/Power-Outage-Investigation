@@ -115,8 +115,10 @@ The following pivot table is a breakdown of average outage duration by state and
 | Wisconsin            |             nan     |                 33971.2 |           459        |    nan      |          388    |          1527.43 |                         nan     |
 | Wyoming              |              61     |                   nan   |             0.333333 |     32      |          nan    |           106    |                         nan     |
 
+
+
+This following pivot table indicates the number of outages occured in each state, broken down by cause categories. This helps to visualize the most common cause of outages in a particular state. 
 **Number of Outage of each state by cause category**
-This pivot table indicates the number of outages occured in each state, broken down by cause categories. This helps to visualize the most common cause of outages in a particular state. 
 
 | U.S._STATE           |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
 |:---------------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
