@@ -1,6 +1,8 @@
 # Power-Outage-Investigation
 **by David Sun & Yijun Luo**
 
+>The Data used for this exlploratory analysis is [here](https://engineering.purdue.edu/LASCI/research-data/outages/outagerisks).
+
 # Introduction
 This analysis works on a dataset pertaining to the major power outages witnessed across the US, from January 2000, to July 2016. Gathered and compiled by Sayanti Mukherjee and others in [this article](https://www.sciencedirect.com/science/article/pii/S2352340918307182), the dataset includes information on the specific time of each outage, the causes related to outage, regional climate information, impact of outage, geographic and economic statistics of the affected state, regional land usage and population information. 
 
@@ -57,7 +59,7 @@ Below is a scatterplot showing the relationship of mean total power sales versus
 
 
 ### Interesting Aggregates
-This following pivot table is a breakdown of average outage duration by state and cause category. This
+The following pivot table is a breakdown of average outage duration by state and cause category. This helps to visualize which cause category has the most significant impact on length of outage for a particular state. 
 
 **Mean outage duration measured of each state by cause category**
 
@@ -114,6 +116,7 @@ This following pivot table is a breakdown of average outage duration by state an
 | Wyoming              |              61     |                   nan   |             0.333333 |     32      |          nan    |           106    |                         nan     |
 
 **Number of Outage of each state by cause category**
+This pivot table indicates the number of outages occured in each state, broken down by cause categories. This helps to visualize the most common cause of outages in a particular state. 
 
 | U.S._STATE           |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
 |:---------------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
@@ -173,15 +176,41 @@ This following pivot table is a breakdown of average outage duration by state an
 ### NMAR Analysis
 The missingness mechanism of column **CAUSE.CATEGORY.DETAIL** is **NMAR**. This column appears to be documented and written by researchers, as the labels used for detailed causes are quite messy and inconsistent. For example, there are two very similar labels "Coal" and " Coal", both of which corresponds to a power outage caused by a coal power plant issue. Another occurance is the various notations of wind damage, including "heavy wind", "wind/rain", "wind storm", and "wind". These clues imply that this column is reported by hand, and the names of each label varies from one person to another. Therefore, it is very likely that the missing values are an incident of human error while collecting the information. If the cause details are unknown to the researcher, or the causes are quite obvious and not worth writing its details, then the researcher is more likely to not write anything within this column. And so, the missing values are depended on the missing values itself.
 
+Values found in **CAUSE.CATEGORY.DETAIL**: [nan, 'vandalism', 'heavy wind', 'thunderstorm', 'winter storm',
+'tornadoes', 'sabotage', 'hailstorm', 'uncontrolled loss',
+'winter', 'wind storm', 'computer hardware', 'public appeal',
+'storm', ' Coal', ' Natural Gas', 'hurricanes', 'wind/rain',
+'snow/ice storm', 'snow/ice ', 'transmission interruption',
+'flooding', 'transformer outage', 'generator trip',
+'relaying malfunction', 'transmission trip', 'lightning',
+'switching', 'shed load', 'line fault', 'breaker trip', 'wildfire',
+' Hydro', 'majorsystem interruption', 'voltage reduction',
+'transmission', 'Coal', 'substation', 'heatwave',
+'distribution interruption', 'wind', 'suspicious activity',
+'feeder shutdown', '100 MW loadshed', 'plant trip', 'fog', 'Hydro',
+'earthquake', 'HVSubstation interruption', 'cables', 'Petroleum',
+'thunderstorm; islanding', 'failure']
+
 ### Missingness Dependency
 ##### Missingness of Outage Duration(OUTAGE.DURATION) depends on Cause(CAUSE.CATEGORY)
+We tested if the column ***OUTAGE.DURATION***'s missingness is depended on the values of column ***CAUSE.CATEGORY***.
+We performed a permutation test, using total variation distance (TVD) as our test statistics, to find out the answer. 
+
+This following grouped bar chart indicates the observed distribution of ***CAUSE.CATEGORY***, separated by the missingness of the corresponding outage duration value. 
 
 <iframe src="assets/fig_5_missing_depends.html" width=800 height=600 frameBorder=0></iframe>
 
+This is the resulting distribution of permutation TVDs versus observed TVD. We can see that the red line is to the right of the entire blue distribution, meaning that our test generated a p-value of approximately 0. This means that the difference between the observed distribution of cause category when duration ***is*** missing, versus the observed distribution of cause category when duration ***is not*** missing, is ***significant***. Thus, the missingness of OUTAGE.DURATION is likely dependent on the value of CAUSE.CATEGORY, making the missingness ***MAR***.
 <iframe src="assets/fig_6_missing_depends_empirical.html" width=800 height=600 frameBorder=0></iframe>
 
 ##### Missingness of Outage Duration(OUTAGE.DURATION) not depends on number of Customers Affected(CUSTOMERS.AFFECTED)
+We further tested if the column ***OUTAGE.DURATION***'s missingness is depended on the values of column ***CUSTOMERS.AFFECTED***.
+We used the absolute difference in mean as our test statistic to perform this permutation test.
+
+This Distribution graph reveals the distribution of customers affected when duration is missing or not missing.
 <iframe src="assets/fig_7_missing_notdepends.html" width=800 height=600 frameBorder=0></iframe>
+
+Similarly, this is the resulting distribution of permutation average difference in mean versus observed average difference in mean. We can see that the red line, the observed, is in the middle of the blue distribution. This corresponds to a p-value equal to 0.696, which is way higher than the standard significance level of 0.05. The results show that our test is inconclusive, and we could not determine if OUTAGE.DURATION's missingness is dependent on the values of CUSTOMERS.AFFECTED.
 <iframe src="assets/fig_8_missing_notdepends_empirical.html" width=800 height=600 frameBorder=0></iframe>
 
 
@@ -204,4 +233,4 @@ The missingness mechanism of column **CAUSE.CATEGORY.DETAIL** is **NMAR**. This 
 
 **P-Value:** 0.0
 
-**Conclusion:** Since the P-value is 0, which is lower than 0.05, we shall reject our null hypothsis. Our hypothesis test suggests that the mean outage duration caused by severe weather is significantly higher than the overall outage duration. This favors our alternative hypothsis: Severe weather related outage durations ***are not*** randomly sampled from the population of outage duration. 
+**Conclusion:** Since the P-value is 0, which is lower than 0.05, we shall reject our null hypothsis. Our hypothesis test suggests that the mean outage duration caused by severe weather is significantly higher than the overall outage duration. This favors our alternative hypothsis: Severe weather related outage durations ***are not*** randomly sampled from the population of outage duration. This implies that the overall duration when caused by severe weather is significantly higher than the average duration length. 
