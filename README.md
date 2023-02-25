@@ -1,6 +1,7 @@
 # Power-Outage-Investigation
 **by David Sun & Yijun Luo**
 
+>Click [me](https://jackkkkkkdzk.github.io/Power-Outage-Investigation/) to see all visualizations
 >The Data used for this exlploratory analysis is [here](https://engineering.purdue.edu/LASCI/research-data/outages/outagerisks).
 
 # Introduction
